@@ -1,0 +1,32 @@
+# Flask / Python
+__pycache__/
+*.pyc
+
+# Virtual environment (never commit)
+venv/
+env/
+ENV/
+bin/
+lib/
+include/
+pyvenv.cfg
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+
+# Flask instance folder (holds config, should not be pushed)
+instance/
+
+# Logs
+*.log
+
+# Database files (optional)
+*.sqlite
+*.db
+
+# If your var/ folder only contains runtime files, ignore it:
+var/
