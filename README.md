@@ -1,6 +1,6 @@
 ### Flask Authentication System
 
-A simple user authentication system built with **Flask**, **SQLAlchemy**, and secure password hashing using `werkzeug.security`.
+A simple user authentication system built with `Flask`, `SQLAlchemy`, and secure password hashing using `werkzeug.security`.
 
 ### Features
 
