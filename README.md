@@ -11,36 +11,34 @@ A simple user authentication system built with **Flask**, **SQLAlchemy**, and se
 - Protected dashboard page
 - Logout functionality
 
-## Installation and Setup
+### Installation and Setup
 
 #### 1. Clone the repository
 ```bash
 git clone https://github.com/abhinaytn/flask-auth.git
 cd flask-auth
 ```
-
-```bash
 #### 2. Create a virtual environment
+```bash
 python3 -m venv venv
 ```
-
-```bash
 #### 3. Activate the virtual environment
+
 ##### macOS / Linux
+```bash
 source venv/bin/activate
 ```
+OR
 
-```bash
 ##### Windows (PowerShell)
+```bash
 venv\Scripts\activate
 ```
-
-```bash
 #### 4. Install dependencies
+```bash
 pip install -r requirements.txt
 ```
-
-```bash
 #### 5. Run the application
+```bash
 python3 main.py
 ```
