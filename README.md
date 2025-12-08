@@ -1,10 +1,8 @@
-# Flask Authentication System
+### Flask Authentication System
 
 A simple user authentication system built with **Flask**, **SQLAlchemy**, and secure password hashing using `werkzeug.security`.
 
----
-
-## Features
+### Features
 
 - User registration & login
 - Sessions for authenticated pages
@@ -13,26 +11,36 @@ A simple user authentication system built with **Flask**, **SQLAlchemy**, and se
 - Protected dashboard page
 - Logout functionality
 
----
-
 ## Installation and Setup
 
-# 1. Clone the repository
+#### 1. Clone the repository
+```bash
 git clone https://github.com/abhinaytn/flask-auth.git
 cd flask-auth
+```
 
-# 2. Create a virtual environment
+```bash
+#### 2. Create a virtual environment
 python3 -m venv venv
+```
 
-# 3. Activate the virtual environment
-# macOS / Linux
+```bash
+#### 3. Activate the virtual environment
+##### macOS / Linux
 source venv/bin/activate
+```
 
-# Windows (PowerShell)
+```bash
+##### Windows (PowerShell)
 venv\Scripts\activate
+```
 
-# 4. Install dependencies
+```bash
+#### 4. Install dependencies
 pip install -r requirements.txt
+```
 
-# 5. Run the application
+```bash
+#### 5. Run the application
 python3 main.py
+```
