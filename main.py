@@ -1,14 +1,28 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
+from authlib.integrations.flask_client import OAuth
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"
+app.secret_key = "secret_key"
 
 # Configure SQL Alchemy
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///users.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
+
+oauth = OAuth(app)
+
+google = oauth.register(
+    name='google',
+    client_id="GOOGLE_CLIENT_ID",
+    client_secret="GOOGLE_CLIENT_SECRET",
+    api_base_url="https://www.googleapis.com/oauth2/v3/",
+    server_metadata_url="https://accounts.google.com/.well-known/openid-configuration",
+    client_kwargs={
+        "scope": "openid email profile"
+    }
+)
 
 # Database Model
 class User(db.Model):
@@ -42,6 +56,26 @@ def login():
     return redirect(url_for('dashboard'))
   else:
     return render_template("index.html")
+  
+# Google login
+@app.route("/google-login")
+def google_login():
+    redirect_uri = url_for("google_callback", _external=True)
+    return google.authorize_redirect(redirect_uri)
+  
+@app.route("/auth/callback")
+def google_callback():
+    token = google.authorize_access_token()
+    user_info = google.get("userinfo").json()
+
+    user = User.query.filter_by(username=user_info["email"]).first()
+    if not user:
+        new_user = User(username=user_info["email"], password_hash="")
+        db.session.add(new_user)
+        db.session.commit()
+
+    session["username"] = user_info["email"].split("@")[0]
+    return redirect(url_for("dashboard"))
 
 # Register
 @app.route("/register", methods=["POST"])
@@ -58,7 +92,6 @@ def register():
     db.session.commit()
     session['username'] = username
     return redirect(url_for('dashboard'))
-
 
 # Dashboard
 @app.route("/dashboard")
@@ -77,3 +110,4 @@ if __name__ in "__main__":
   with app.app_context():
     db.create_all()
   app.run(debug=True)
+  

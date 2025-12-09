@@ -5,6 +5,7 @@ A simple user authentication system built with `Flask`, `SQLAlchemy`, and secure
 ### Features
 
 - User registration & login
+- Google OAuth sign-in
 - Sessions for authenticated pages
 - Secure password hashing (`pbkdf2:sha256`)
 - SQLite database using SQLAlchemy ORM
@@ -29,7 +30,6 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 OR
-
 ##### Windows (PowerShell)
 ```bash
 venv\Scripts\activate
@@ -38,7 +38,9 @@ venv\Scripts\activate
 ```bash
 pip install -r requirements.txt
 ```
-#### 5. Run the application
+#### 5. Add Google client id and secret
+
+#### 6. Run the application
 ```bash
 python3 main.py
 ```

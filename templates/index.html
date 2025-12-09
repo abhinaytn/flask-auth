@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-
-{% block body %}
+{% extends "base.html" %} {% block body %}
 
 <div class="container">
   <h1>Welcome</h1>
@@ -33,20 +31,26 @@
       class="btn btn-login"
       onclick="setActionForm('register')"
     />
+    <a href="{{ url_for('google_login') }}" class="google-btn">
+      <img
+        src="https://developers.google.com/identity/images/g-logo.png"
+        alt="Google logo"
+      />
+      <span>Sign in with Google</span>
+    </a>
   </form>
 </div>
 
 <script>
   function setActionForm(action) {
-    let form = document.getElementById('auth-form')
-    if (action === 'login') {
-      form.action = "{{url_for('login')}}"
-      form.method = 'post'
+    let form = document.getElementById("auth-form");
+    if (action === "login") {
+      form.action = "{{url_for('login')}}";
+      form.method = "post";
       form.submit();
-    }
-    else if (action === 'register') {
-      form.action = "{{url_for('register')}}"
-      form.method = 'post'
+    } else if (action === "register") {
+      form.action = "{{url_for('register')}}";
+      form.method = "post";
       form.submit();
     }
   }
