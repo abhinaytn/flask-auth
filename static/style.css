@@ -1,88 +1,56 @@
-/* GENERAL PAGE SETTINGS */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Inter", Arial, sans-serif;
-  background: #f3f3f3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+h1 {
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
-/* CARD CONTAINER */
 .container {
-  background: #fff;
-  padding: 40px 50px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-  width: 380px;
+  max-width: 800px;
+  margin: 50px auto;
   text-align: center;
 }
 
-h1 {
-  margin-bottom: 20px;
-  font-size: 32px;
+.container h1 {
+  font-size: 36px;
   color: #333;
+  margin-bottom: 20px;
 }
 
-/* INPUT FIELDS */
-.input-field {
-  width: 100%;
-  padding: 12px 14px;
-  margin: 12px 0;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-  font-size: 16px;
-  outline: none;
-  transition: 0.2s;
-}
-
-.input-field:focus {
-  border-color: #007bff;
-  box-shadow: 0 0 4px rgba(0, 123, 255, 0.4);
-}
-
-/* BUTTONS */
-.btn {
-  width: 100%;
-  padding: 12px;
-  margin-top: 14px;
-  border: none;
-  cursor: pointer;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 600;
-  transition: 0.2s;
-}
-
-/* LOGIN / REGISTER BUTTONS */
-.btn-login {
-  background: #007bff;
-  color: white;
-}
-
-.btn-login:hover {
-  background: #0056cc;
-}
-
-/* LOGOUT BUTTON */
-.btn-logout {
-  display: inline-block;
-  background: #dc3545;
-  color: white;
-  padding: 12px 18px;
-  text-decoration: none;
-  border-radius: 8px;
-  margin-top: 20px;
-}
-
-.btn-logout:hover {
-  background: #b52a37;
-}
-
-/* DASHBOARD TEXT */
-p {
+.container p {
   font-size: 18px;
-  color: #555;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.container .login-btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+.container .login-btn:hover {
+  background-color: #0056b3;
+}
+
+.container .logout-btn {
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease;
+}
+
+.container .logout-btn:hover {
+  background-color: #b52a37;
 }
