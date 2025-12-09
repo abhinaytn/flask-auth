@@ -50,7 +50,7 @@ def register():
   password = request.form['password']
   user = User.query.filter_by(username=username).first()
   if user:
-    return redirect("index.html", error="User already exists")
+    return render_template("index.html", error="User already exists")
   else:
     new_user = User(username=username)
     new_user.set_password(password)
