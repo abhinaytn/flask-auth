@@ -2,6 +2,10 @@ from flask import Flask, render_template, request, redirect, session, url_for
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_sqlalchemy import SQLAlchemy
 from authlib.integrations.flask_client import OAuth
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
 app.secret_key = "secret_key"
@@ -15,8 +19,8 @@ oauth = OAuth(app)
 
 google = oauth.register(
     name='google',
-    client_id="GOOGLE_CLIENT_ID",
-    client_secret="GOOGLE_CLIENT_SECRET",
+    client_id=os.getenv("GOOGLE_CLIENT_ID"),
+    client_secret=os.getenv("GOOGLE_CLIENT_SECRET"),
     api_base_url="https://www.googleapis.com/oauth2/v3/",
     server_metadata_url="https://accounts.google.com/.well-known/openid-configuration",
     client_kwargs={

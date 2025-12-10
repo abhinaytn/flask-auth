@@ -30,3 +30,5 @@ instance/
 
 # If your var/ folder only contains runtime files, ignore it:
 var/
+
+.env
